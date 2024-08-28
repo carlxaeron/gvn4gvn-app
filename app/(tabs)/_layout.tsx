@@ -9,6 +9,10 @@ import { ThemedText } from "@/components/ThemedText";
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
+  const defaultOptions = {
+    tabBarStyle: {height: 80, paddingBottom: 15},
+  };
+
   return (
     // <Stack>
     //   <Stack.Screen name="index" />
@@ -21,6 +25,7 @@ export default function RootLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          ...defaultOptions,
           title: 'Home',
           headerShown: true,
           headerTitle(props) {
@@ -40,9 +45,30 @@ export default function RootLayout() {
       <Tabs.Screen
         name="missionaries"
         options={{
+          ...defaultOptions,
           title: 'Missionaries',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="projects"
+        options={{
+          ...defaultOptions,
+          title: 'Projects',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'bookmark' : 'bookmark-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="community"
+        options={{
+          ...defaultOptions,
+          title: 'Community',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
         }}
       />
